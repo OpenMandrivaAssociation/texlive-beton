@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/beton
+# catalog-date 2009-09-24 15:05:48 +0200
+# catalog-license lppl
+# catalog-version undef
 Name:		texlive-beton
 Version:	20090924
 Release:	1
@@ -43,6 +49,7 @@ Don Knuth and used in his book "Concrete Mathematics".
 #- source
 %doc %{_texmfdistdir}/source/latex/beton/beton.dtx
 %doc %{_texmfdistdir}/source/latex/beton/beton.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -53,3 +60,5 @@ Don Knuth and used in his book "Concrete Mathematics".
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
