@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-beton
 Version:	20090924
-Release:	1
+Release:	2
 Summary:	Use Concrete fonts
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/beton
