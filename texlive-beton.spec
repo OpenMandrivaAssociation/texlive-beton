@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Use Concrete fonts
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/beton
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/beton
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.doc.r%{version}.tar.xz
