@@ -1,46 +1,23 @@
-Name:		texlive-beton
-Version:	15878
-Release:	2
+%global tl_name beton
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Use Concrete fonts
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/beton
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.source.r%{version}.tar.xz
+License:	lppl1.2
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beton.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-Typeset a LaTeX2e document with the Concrete fonts designed by
-Don Knuth and used in his book "Concrete Mathematics".
+Typeset a LaTeX2e document with the Concrete fonts designed by Don Knuth
+and used in his book "Concrete Mathematics".
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/beton/beton.sty
-%doc %{_texmfdistdir}/doc/latex/beton/beton.pdf
-%doc %{_texmfdistdir}/doc/latex/beton/legal.txt
-#- source
-%doc %{_texmfdistdir}/source/latex/beton/beton.dtx
-%doc %{_texmfdistdir}/source/latex/beton/beton.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
